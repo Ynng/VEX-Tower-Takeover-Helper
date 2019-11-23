@@ -194,7 +194,6 @@ h1 {
     0% {width:25vw; height:25vw;};
     25% {width:20vw; height:20vw;}
     100% {width:20vw; height:20vw;}
-
   }
 
 @media only screen and (min-width: 60rem) {
