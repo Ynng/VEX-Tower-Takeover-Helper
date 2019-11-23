@@ -20,7 +20,7 @@
     font-family: 'Roboto', 'Arial', 'ＭＳ Ｐゴシック', 'MS PGothic', 'メイリオ', Meiryo, "Hiragino Sans GB", sans-serif;
 }
 
-.vertical-flex{
+.vertical-flex {
     display: flex;
     flex-direction: column;
 }
@@ -118,6 +118,18 @@ h1 {
     color: #e7e7e7;
 }
 
+h2 {
+    margin: 0;
+    text-decoration: underline;
+    font-weight: 300;
+    line-height: 5vw;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
+    font-size: 5vw;
+    color: #e7e7e7;
+    margin: 1vw 0 0 0 ;
+}
+
 /* Cards */
 
 .cube-display {
@@ -131,7 +143,7 @@ h1 {
     box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
     transition: border-radius .2s ease-in-out, .4s ease-in-out;
     overflow: hidden;
-    margin: 5vw 0;
+    margin:3vw 0 0 0;
 }
 
 .tower-display {
@@ -199,7 +211,7 @@ h1 {
     box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
     transition: border-radius .2s ease-in-out, .4s ease-in-out;
     overflow: hidden;
-    margin:1vh 0;
+    margin: 1vh 0;
 }
 
 .score-display p {
@@ -216,7 +228,7 @@ h1 {
     width: 50vw;
 }
 
-#suggestion-change{
+#suggestion-change {
     font-size: 12vw;
     font-weight: 1000;
 }
