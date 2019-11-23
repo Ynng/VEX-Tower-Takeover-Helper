@@ -56,13 +56,18 @@ window.onload = function() {
         }
     })(document);
     //EXAMPLE OF USE
-    var h = function(e) {
-        console.log(e.type, e)
-        e.target.innerHTML = e.type;
-    };
+    
     document.body.addEventListener('fc', h, false); // 0-50ms vs 500ms with normal click
     document.body.addEventListener('swl', h, false);
     document.body.addEventListener('swr', h, false);
     document.body.addEventListener('swu', h, false);
     document.body.addEventListener('swd', h, false);
 }
+
+var h = function(e) {
+    var cl = event.target.classList
+    // console.log(cl)
+    if(cl.contains("image")&&cl.contains("cube")){
+        if(e.type=="fc")
+    }
+};
