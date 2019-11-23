@@ -1,28 +1,14 @@
 'use strict';
-var checkAdapative = setInterval(function () {
-    // do your thing
-    console.log(document.body.clientWidth / document.body.clientHeight);
-    if (document.body.clientWidth / document.body.clientHeight < 0.5) {
-        document.getElementById("main-container").classList.add("tall-screen")
-    } else {
-        document.getElementById("main-container").classList.remove("tall-screen")
-    }
-    if (document.body.clientWidth / document.body.clientHeight > 0.7) {
-        document.getElementById("main-container").classList.add("wide-screen")
-    } else {
-        document.getElementById("main-container").classList.remove("wide-screen")
-    }
-    // counter++;
-    // if(counter === 10) {
-    //     clearInterval(i);
-    // }
-}, 2000);
 
-async function checkAdapativeAsync() {
-    checkAdapative;
-}
+
 window.onload = function () {
-    checkAdapative;
+    checkAdapativeAsync();
+    console.log(navigator);
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('./service-worker.js')
+            .then(function () { console.log('Service Worker Registered'); });
+    }
     (function (d) {
         var
             ce = function (e, n) {
@@ -84,8 +70,30 @@ window.onload = function () {
     document.body.addEventListener('swr', cube_interactions, false);
     document.body.addEventListener('swu', cube_interactions, false);
     document.body.addEventListener('swd', cube_interactions, false);
-    checkAdapativeAsync();
 }
+
+
+async function checkAdapativeAsync() {
+    setInterval(function () {
+        // do your thing
+        console.log(document.body.clientWidth / document.body.clientHeight);
+        if (document.body.clientWidth / document.body.clientHeight < 0.5) {
+            document.getElementById("main-container").classList.add("tall-screen")
+        } else {
+            document.getElementById("main-container").classList.remove("tall-screen")
+        }
+        if (document.body.clientWidth / document.body.clientHeight > 0.7) {
+            document.getElementById("main-container").classList.add("wide-screen")
+        } else {
+            document.getElementById("main-container").classList.remove("wide-screen")
+        }
+        // counter++;
+        // if(counter === 10) {
+        //     clearInterval(i);
+        // }
+    }, 2000);
+};
+
 
 var green_animation_counter = 0, red_animation_counter = 0
 var cube_counter = [0, 0, 0, 0, 0, 0, 0, 0, 0]//friendly, enemy, tower
