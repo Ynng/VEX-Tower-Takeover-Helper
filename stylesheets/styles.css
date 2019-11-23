@@ -1,5 +1,6 @@
 /* General styling/Mobile styling */
-*{
+
+* {
     overflow-y: hidden;
 }
 
@@ -8,7 +9,7 @@
 }
 
 .disappear {
-    display:none;
+    display: none;
 }
 
 .smallText {
@@ -16,7 +17,7 @@
 }
 
 .japanese {
-    font-family: 'Quicksand', 'Arial', 'ＭＳ Ｐゴシック', 'MS PGothic', 'メイリオ', Meiryo, "Hiragino Sans GB", sans-serif;
+    font-family: 'Roboto', 'Arial', 'ＭＳ Ｐゴシック', 'MS PGothic', 'メイリオ', Meiryo, "Hiragino Sans GB", sans-serif;
 }
 
 .preload *, .preload {
@@ -28,7 +29,7 @@
 }
 
 body {
-    font-family: 'Quicksand', 'Arial', "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-family: 'Roboto', 'Arial', "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     background: rgb(45, 43, 51);
     margin: 0;
 }
@@ -105,7 +106,7 @@ a:active {
 h1 {
     margin: 0;
     font-weight: 300;
-    line-height:  5vw;
+    line-height: 5vw;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
     font-size: 5vw;
@@ -114,7 +115,7 @@ h1 {
 
 /* Cards */
 
-.cube-display{
+.cube-display {
     background: rgb(63, 67, 87, 0.1);
     text-align: center;
     display: flex;
@@ -128,7 +129,7 @@ h1 {
     margin: 5vw 0;
 }
 
-.tower-display{
+.tower-display {
     background: rgb(63, 67, 87, 0.1);
     text-align: center;
     display: flex;
@@ -141,35 +142,48 @@ h1 {
     overflow: hidden;
 }
 
-.tower-display .cube.container{
+.tower-display .cube.container {
     position: relative;
-    margin:0 2vw;
+    margin: 0 2vw;
     width: 25vw;
     height: 30vw;
 }
 
-.cube-display .cube.container{
+.cube-display .cube.container {
     position: relative;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, 0%);
     width: 25vw;
-    height: 30vw;
+    height: 31vw;
 }
 
-.cube.image{
+.cube.image {
     margin: 0;
     width: 25vw;
     height: 25vw;
+    border-radius: 2vw;
 }
 
-.cube.container>.counter{
-    font-size:5vw;
-    color:#FFFFFF;
+.cube.container>.counter {
+    font-size: 5vw;
+    color: #FFFFFF;
     margin: 0;
 }
 
-.score-display{
+.cube.image.add-animation {
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-name: add-animation;
+    animation-duration: 0.7s;
+}
+
+.cube.image.remove-animation {
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-name: remove-animation;
+    animation-duration: 1.5s;
+}
+
+.score-display {
     background: rgb(63, 67, 87, 0.1);
     text-align: center;
     display: flex;
@@ -182,83 +196,35 @@ h1 {
     overflow: hidden;
 }
 
-.score-display p{
-    font-size:5vw;
-    color:#FFFFFF;
-    width:49vw;
+.score-display p {
+    font-family: 'Roboto', 'Quicksand', 'Arial', "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-weight: 900;
+    font-size: 5vw;
+    color: #FFFFFF;
+    width: 49vw;
     margin: 1vw 0;
 }
 
-/* RESPONSIVENESS */
-@keyframes cube-animation {
-    0% {width:25vw; height:25vw;};
-    25% {width:20vw; height:20vw;}
-    100% {width:20vw; height:20vw;}
-  }
+@keyframes add-animation {
+    0% {
+        background: rgba(0, 255, 0, 0)
+    }
+    20% {
+        background: rgba(0, 255, 0, 1)
+    }
+    100% {
+        background: rgba(0, 255, 0, 0)
+    }
+}
 
-@media only screen and (min-width: 60rem) {
-    .card {
-        min-width: 55em;
-        max-width: 70vw;
+@keyframes remove-animation {
+    0% {
+        background: rgba(255, 0, 0, 0)
     }
-    .card.content-only {
-        min-width: 40em;
-        max-width: 60vw;
+    25% {
+        background: rgba(255, 0, 0, 1)
     }
-    .card.content-only>.content {
-        width: 100%;
-    }
-    .card.content-only.left .labelFolder, .card.left>.heading {
-        text-align: left;
-    }
-    .card.content-only.center .labelFolder, .card.center>.heading {
-        text-align: center;
-    }
-    .card.content-only.right .labelFolder, .card.right>.heading {
-        text-align: right;
-    }
-    .card.left>.content {
-        float: left;
-    }
-    .card.center>.content {
-        float: center;
-    }
-    .card.right>.content {
-        float: right;
-    }
-    .buttons {
-        flex-direction: row;
-        justify-content: center;
-    }
-    .image {
-        border-radius: 0.5em;
-        width: 45%;
-    }
-    .image:hover {
-        border-radius: 0 .5em .5em .5em;
-        box-shadow: 0.2em 0.2em 0.4em 0.4em rgba(0, 0, 0, 0.25);
-    }
-    .content {
-        width: 54%;
-    }
-    #main-container {
-        transition: 0.2s cubic-bezier(0.06, 0.35, 0.43, 0.84);
-        min-height: 80vh;
-        margin: 10vh 0;
-    }
-    .card>.heading>i {
-        display: inline-block;
-        transform: rotateZ(-23deg);
-        transition: .15s;
-    }
-    .card:hover>.heading>i {
-        transform: rotateZ(0deg);
-        transition: .2s;
-    }
-    .label:hover, .label.selected {
-        border-radius: 0 0.25em 0.25em 0.25em;
-    }
-    .label.button:hover, .label.selected {
-        box-shadow: 0.1em 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.25);
+    100% {
+        background: rgba(255, 0, 0, 0)
     }
 }
