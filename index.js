@@ -166,6 +166,8 @@ var update_score = function () {
         }
     }
 
+    document.getElementById("suggestion").innerHTML = tempA;
+    document.getElementById("suggestion-change").innerHTML = tempA - leading_score;
     console.log(tempB)
     switch (tempB) {
         case 0:

@@ -20,6 +20,11 @@
     font-family: 'Roboto', 'Arial', 'ＭＳ Ｐゴシック', 'MS PGothic', 'メイリオ', Meiryo, "Hiragino Sans GB", sans-serif;
 }
 
+.vertical-flex{
+    display: flex;
+    flex-direction: column;
+}
+
 .preload *, .preload {
     -webkit-transition: none !important;
     -moz-transition: none !important;
@@ -40,7 +45,7 @@ body {
     justify-content: center;
     height: 100%;
     width: 100%;
-    transition: 0.3s cubic-bezier(0.06, 0.35, 0.43, 0.84), ;
+    transition: 0.3s cubic-bezier(0.06, 0.35, 0.43, 0.84);
 }
 
 #cube-container {
@@ -194,11 +199,11 @@ h1 {
     box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
     transition: border-radius .2s ease-in-out, .4s ease-in-out;
     overflow: hidden;
+    margin:1vh 0;
 }
 
 .score-display p {
     font-family: 'Roboto', 'Quicksand', 'Arial', "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-    font-weight: 900;
     font-size: 5vw;
     color: #FFFFFF;
     width: 25vw;
@@ -206,8 +211,14 @@ h1 {
 }
 
 .score-display .leading {
+    font-weight: 900;
     font-size: 10vw;
     width: 50vw;
+}
+
+#suggestion-change{
+    font-size: 12vw;
+    font-weight: 1000;
 }
 
 .greenbg {
