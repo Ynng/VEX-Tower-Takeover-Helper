@@ -1,7 +1,11 @@
 'use strict';
 
 
+var asdf = 0;
+var lol = 0;
+
 window.onload = function () {
+
     checkAdapativeAsync();
     console.log(navigator);
     // if ('serviceWorker' in navigator) {
@@ -101,6 +105,37 @@ var cube_interactions = function (e) {
     var cl = event.target.classList
     var temp = 0, tempA;
     // console.log(e.target.previousSibling, e.target.previousSibling.innerHTML)
+    if (e.type == "swl") {
+        asdf++;
+        console.log(asdf);
+    }
+    if (asdf == 10) {
+        asdf = 0;
+        document.getElementById("enemy").id = 'temp';
+        document.getElementById("friendly").id = 'enemy';
+        document.getElementById("temp").id = 'friendly';
+        cube_counter = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        trigger_yellow_animation(document.getElementById("main-container"))
+    }
+    if (e.type == "swr") {
+        lol++;
+        console.log(lol);
+    }
+    if (lol == 10) {
+        lol = 0;
+        document.getElementsByClassName("red-side")[0].classList.add("temp2")
+        document.getElementsByClassName("blue-side")[0].classList.add("temp")
+
+        document.getElementsByClassName("temp")[0].classList.remove("blue-side")
+        document.getElementsByClassName("temp")[0].classList.add("red-side")
+        document.getElementsByClassName("temp2")[0].classList.remove("red-side")
+        document.getElementsByClassName("temp2")[0].classList.add("blue-side")
+
+        document.getElementsByClassName("temp")[0].classList.remove("temp")
+        document.getElementsByClassName("temp2")[0].classList.remove("temp2")
+
+        trigger_green_animation(document.getElementById("main-container"))
+    }
     if (cl.contains("image") && cl.contains("cube")) {
         if (cl.contains("orange")) {
             tempA = temp = 0
@@ -119,7 +154,7 @@ var cube_interactions = function (e) {
                 e.target.parentNode.children[0].innerHTML = ++cube_counter[temp]
                 trigger_green_animation(e.target)
                 update_score()
-            }else{
+            } else {
                 trigger_yellow_animation(e.target)
             }
         } else if (e.type == "swd") {
@@ -127,7 +162,7 @@ var cube_interactions = function (e) {
                 e.target.parentNode.children[0].innerHTML = --cube_counter[temp]
                 trigger_red_animation(e.target)
                 update_score()
-            }else{
+            } else {
                 trigger_yellow_animation(e.target)
             }
         }

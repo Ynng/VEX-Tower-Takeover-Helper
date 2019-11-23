@@ -237,6 +237,12 @@ h2 {
     animation-duration: 2s;
 }
 
+#cube-container .blue-side{
+    background: rgba(0, 20, 121, 0.3);  
+}
+#cube-container .red-side{
+    background: rgba(219, 0, 0, 0.3);  
+}
 .score-display {
     background: rgb(63, 67, 87, 0.8);
     text-align: center;
@@ -355,4 +361,7 @@ h2 {
 
 *.wide-screen {
     background-color: #ffffff;
+}
+#enemy{
+    border-radius: 0em;
 }
