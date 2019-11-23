@@ -158,7 +158,7 @@ h1 {
     height: 31vw;
 }
 
-.cube.image {
+.cube.image, #suggestion-cube {
     margin: 0;
     width: 25vw;
     height: 25vw;
@@ -171,15 +171,15 @@ h1 {
     margin: 0;
 }
 
-.add-animation {
+.green-animation {
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-    animation-name: add-animation;
+    animation-name: green-animation;
     animation-duration: 0.7s;
 }
 
-.remove-animation {
+.red-animation {
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-    animation-name: remove-animation;
+    animation-name: red-animation;
     animation-duration: 1.5s;
 }
 
@@ -210,7 +210,15 @@ h1 {
     width: 50vw;
 }
 
-@keyframes add-animation {
+.greenbg {
+    background: rgba(0, 255, 0, 0.7)
+}
+
+.redbg {
+    background: rgba(255, 0, 0, 0.7)
+}
+
+@keyframes green-animation {
     0% {
         background: rgba(0, 255, 0, 0)
     }
@@ -222,7 +230,7 @@ h1 {
     }
 }
 
-@keyframes remove-animation {
+@keyframes red-animation {
     0% {
         background: rgba(255, 0, 0, 0)
     }
