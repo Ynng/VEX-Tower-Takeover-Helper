@@ -171,13 +171,13 @@ h1 {
     margin: 0;
 }
 
-.cube.image.add-animation {
+.add-animation {
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     animation-name: add-animation;
     animation-duration: 0.7s;
 }
 
-.cube.image.remove-animation {
+.remove-animation {
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     animation-name: remove-animation;
     animation-duration: 1.5s;
