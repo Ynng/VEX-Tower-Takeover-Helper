@@ -17,20 +17,35 @@
 	<!-- Script -->
 	<script src="index.js"></script>
 	<link rel="manifest" href="/index.webmanifest">
-	<script>
+	<!-- <script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag() { dataLayer.push(arguments); }
 		gtag('js', new Date());
 		gtag('config', 'UA-140777720-1');
-	</script>
+	</script> -->
 
 	<!-- Page info -->
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
 	<meta name="name" content="VEX HELPER BY Ynng">
-	<meta name="description" content="The personal website for a web devving weeb">
 	<meta charset="utf-8">
-	<link rel="shortcut icon" href="favicon.ico">
-	<Title>Home | Kevin Huang</Title>
+	<link rel="shortcut icon" href="img/orange_cube.png">
+	<Title>Vex Helper | Ynng</Title>
+
+	<!-- ios pwa stuffs -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="VEX Helper | Ynng">
+	<link rel="apple-touch-icon" href="/img/orange_cube.png">
+
+	<!-- more pwa stuff -->
+	<script language="javascript">
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker
+				.register('./service-worker.js')
+				.then(function () { console.log('Service Worker Registered'); });
+		}
+		
+	</script>
 </head>
 
 <body>
@@ -39,7 +54,7 @@
 		<![endif]-->
 
 	<div id="main-container">
-		<h1>VEX Tower Takeover Helper - Ynng</h1>
+		<h1>VEX Tower Takeover v2.1 - Ynng</h1>
 		<div id="tower" class="tower-display">
 			<div class="cube container orange">
 				<p class="counter">0</p>

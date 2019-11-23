@@ -16,14 +16,13 @@ var checkAdapative = setInterval(function () {
     // if(counter === 10) {
     //     clearInterval(i);
     // }
-}, 1000);
+}, 2000);
 
-async function checkAdapativeAsync(){
-    checkAdapative();
+async function checkAdapativeAsync() {
+    checkAdapative;
 }
 window.onload = function () {
-
-    checkAdapativeAsync();
+    checkAdapative;
     (function (d) {
         var
             ce = function (e, n) {
@@ -85,46 +84,54 @@ window.onload = function () {
     document.body.addEventListener('swr', cube_interactions, false);
     document.body.addEventListener('swu', cube_interactions, false);
     document.body.addEventListener('swd', cube_interactions, false);
+    checkAdapativeAsync();
 }
 
 var green_animation_counter = 0, red_animation_counter = 0
 var cube_counter = [0, 0, 0, 0, 0, 0, 0, 0, 0]//friendly, enemy, tower
 var cube_interactions = function (e) {
     var cl = event.target.classList
-    var temp = 0;
+    var temp = 0, tempA;
     // console.log(e.target.previousSibling, e.target.previousSibling.innerHTML)
     if (cl.contains("image") && cl.contains("cube")) {
         if (cl.contains("orange")) {
-            temp = 0
+            tempA = temp = 0
         }
         else if (cl.contains("green")) {
-            temp = 1
+            tempA = temp = 1
         }
         else if (cl.contains("purple")) {
-            temp = 2
+            tempA = temp = 2
         }
         if (e.target.parentNode.parentNode.id == 'enemy') temp += 3
         if (e.target.parentNode.parentNode.id == 'tower') temp += 6
 
         if (e.type == "fc") {
-            e.target.parentNode.children[0].innerHTML = ++cube_counter[temp]
-            trigger_green_animation(e.target)
+            if (cube_counter[tempA] + cube_counter[tempA + 3] + cube_counter[tempA + 6] < 22) {
+                e.target.parentNode.children[0].innerHTML = ++cube_counter[temp]
+                trigger_green_animation(e.target)
+                update_score()
+            }else{
+                trigger_yellow_animation(e.target)
+            }
         } else if (e.type == "swd") {
             if (cube_counter[temp] > 0) {
                 e.target.parentNode.children[0].innerHTML = --cube_counter[temp]
                 trigger_red_animation(e.target)
+                update_score()
+            }else{
+                trigger_yellow_animation(e.target)
             }
         }
-        update_score()
     }
 };
 
 
 var trigger_green_animation = function (e) {
     var cl = e.classList
-    if (cl.contains("red-animation")) {
-        cl.remove("red-animation")
-    }
+    cl.remove("red-animation")
+    cl.remove("yellow-animation")
+
     if (cl.contains("green-animation")) {
         cl.remove("green-animation")
         setTimeout(function () {
@@ -138,9 +145,9 @@ var trigger_green_animation = function (e) {
 
 var trigger_red_animation = function (e) {
     var cl = e.classList
-    if (cl.contains("green-animation")) {
-        cl.remove("green-animation")
-    }
+    cl.remove("green-animation")
+    cl.remove("yellow-animation")
+
     if (cl.contains("red-animation")) {
         cl.remove("red-animation")
         setTimeout(function () {
@@ -151,6 +158,20 @@ var trigger_red_animation = function (e) {
     }
 }
 
+var trigger_yellow_animation = function (e) {
+    var cl = e.classList
+    cl.remove("green-animation")
+    cl.remove("red-animation")
+
+    if (cl.contains("yellow-animation")) {
+        cl.remove("yellow-animation")
+        setTimeout(function () {
+            cl.add("yellow-animation")
+        }, 7);
+    } else {
+        cl.add("yellow-animation")
+    }
+}
 
 var evaluate_lead = function (input) {
     var friendly_score, enemy_score

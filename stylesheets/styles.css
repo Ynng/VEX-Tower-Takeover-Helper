@@ -231,6 +231,11 @@ h2 {
     animation-name: red-animation;
     animation-duration: 1.5s;
 }
+.yellow-animation {
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-name: yellow-animation;
+    animation-duration: 2s;
+}
 
 .score-display {
     background: rgb(63, 67, 87, 0.8);
@@ -308,6 +313,19 @@ h2 {
     }
     100% {
         background: rgba(255, 0, 0, 0)
+    }
+}
+
+
+@keyframes yellow-animation {
+    0% {
+        background: rgba(255, 255,0, 0)
+    }
+    25% {
+        background: rgba(255, 255, 0, 1)
+    }
+    100% {
+        background: rgba(255, 255, 0, 0)
     }
 }
 
