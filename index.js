@@ -4,11 +4,11 @@
 window.onload = function () {
     checkAdapativeAsync();
     console.log(navigator);
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-            .register('./service-worker.js')
-            .then(function () { console.log('Service Worker Registered'); });
-    }
+    // if ('serviceWorker' in navigator) {
+    //     navigator.serviceWorker
+    //         .register('./service-worker.js')
+    //         .then(function () { console.log('Service Worker Registered'); });
+    // }
     (function (d) {
         var
             ce = function (e, n) {
@@ -204,10 +204,10 @@ var update_score = function () {
     tempB = leading_score;
 
     possible_leads[0] = leading_score;
-    possible_leads[1] = evaluate_lead(cube_counter.slice(0, 6).concat([cube_counter[6] + 1]).concat(cube_counter.slice(7, 9)))
-    possible_leads[2] = evaluate_lead(cube_counter.slice(0, 7).concat([cube_counter[7] + 1]).concat(cube_counter.slice(8, 9)))
-    possible_leads[3] = evaluate_lead(cube_counter.slice(0, 8).concat([cube_counter[8] + 1]))
-    possible_leads[4] = possible_leads[5] = possible_leads[6] = -1000;
+    possible_leads[1] = possible_leads[2] = possible_leads[3] = possible_leads[4] = possible_leads[5] = possible_leads[6] = -1000;
+    if (cube_counter[0] + cube_counter[0 + 3] + cube_counter[0 + 6] < 22) possible_leads[1] = evaluate_lead(cube_counter.slice(0, 6).concat([cube_counter[6] + 1]).concat(cube_counter.slice(7, 9)))
+    if (cube_counter[1] + cube_counter[1 + 3] + cube_counter[1 + 6] < 22) possible_leads[2] = evaluate_lead(cube_counter.slice(0, 7).concat([cube_counter[7] + 1]).concat(cube_counter.slice(8, 9)))
+    if (cube_counter[2] + cube_counter[2 + 3] + cube_counter[2 + 6] < 22) possible_leads[3] = evaluate_lead(cube_counter.slice(0, 8).concat([cube_counter[8] + 1]))
     if (cube_counter[6] >= 1) possible_leads[4] = evaluate_lead(cube_counter.slice(0, 6).concat([cube_counter[6] - 1]).concat(cube_counter.slice(7, 9)))
     if (cube_counter[7] >= 1) possible_leads[5] = evaluate_lead(cube_counter.slice(0, 7).concat([cube_counter[7] - 1]).concat(cube_counter.slice(8, 9)))
     if (cube_counter[8] >= 1) possible_leads[6] = evaluate_lead(cube_counter.slice(0, 8).concat([cube_counter[8] - 1]))
