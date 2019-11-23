@@ -1,0 +1,242 @@
+/* General styling/Mobile styling */
+*{
+    overflow-y: hidden;
+}
+
+.alignRight {
+    text-align: right !important;
+}
+
+.disappear {
+    display:none;
+}
+
+.smallText {
+    font-size: .675em;
+}
+
+.japanese {
+    font-family: 'Quicksand', 'Arial', 'ＭＳ Ｐゴシック', 'MS PGothic', 'メイリオ', Meiryo, "Hiragino Sans GB", sans-serif;
+}
+
+.preload *, .preload {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+body {
+    font-family: 'Quicksand', 'Arial', "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    background: rgb(45, 43, 51);
+    margin: 0;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s cubic-bezier(0.06, 0.35, 0.43, 0.84), ;
+}
+
+#team-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s cubic-bezier(0.06, 0.35, 0.43, 0.84), ;
+}
+
+/* <a>s */
+
+a {
+    transition: .1s ease-out;
+}
+
+a:link {
+    text-decoration: none;
+    color: rgb(132, 121, 255);
+}
+
+a:visited {
+    color: rgb(210, 121, 255);
+}
+
+a:hover {
+    color: rgb(121, 181, 255);
+}
+
+a:active {
+    color: rgb(94, 139, 195);
+}
+
+/* Scroll Bar */
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background: #f1f1f1;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #888;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Title */
+
+.title {
+    margin: 0;
+    font-weight: 300;
+    line-height: 1.6em;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
+}
+
+h1.title {
+    font-size: 3em;
+    color: #e7e7e7;
+}
+
+h2.title {
+    font-size: 1.5em;
+    color: #a2a2a2;
+    font-weight: bold;
+}
+
+/* Cards */
+
+.team-display {
+    background: rgb(63, 67, 87, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 1em;
+    width: 49vw;
+    box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
+    transition: border-radius .2s ease-in-out, .4s ease-in-out;
+    overflow: hidden;
+}
+
+.cube.container{
+    position: relative;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0%);
+    width: 25vw;
+    height: 30vw;
+}
+
+.cube.image{
+    width: 25vw;
+    height: 25vw;
+}
+
+.cube.container>.counter{
+    
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.card.content-only {
+    padding: 1em 0.75em;
+}
+
+.card.hidden {
+    height: 0;
+    padding: 0;
+    margin: 0 auto;
+    box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, 0);
+}
+
+/* RESPONSIVENESS */
+
+@media only screen and (min-width: 60rem) {
+    .card {
+        min-width: 55em;
+        max-width: 70vw;
+    }
+    .card.content-only {
+        min-width: 40em;
+        max-width: 60vw;
+    }
+    .card.content-only>.content {
+        width: 100%;
+    }
+    .card.content-only.left .labelFolder, .card.left>.heading {
+        text-align: left;
+    }
+    .card.content-only.center .labelFolder, .card.center>.heading {
+        text-align: center;
+    }
+    .card.content-only.right .labelFolder, .card.right>.heading {
+        text-align: right;
+    }
+    .card.left>.content {
+        float: left;
+    }
+    .card.center>.content {
+        float: center;
+    }
+    .card.right>.content {
+        float: right;
+    }
+    .buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .image {
+        border-radius: 0.5em;
+        width: 45%;
+    }
+    .image:hover {
+        border-radius: 0 .5em .5em .5em;
+        box-shadow: 0.2em 0.2em 0.4em 0.4em rgba(0, 0, 0, 0.25);
+    }
+    .content {
+        width: 54%;
+    }
+    #main-container {
+        transition: 0.2s cubic-bezier(0.06, 0.35, 0.43, 0.84);
+        min-height: 80vh;
+        margin: 10vh 0;
+    }
+    .card>.heading>i {
+        display: inline-block;
+        transform: rotateZ(-23deg);
+        transition: .15s;
+    }
+    .card:hover>.heading>i {
+        transform: rotateZ(0deg);
+        transition: .2s;
+    }
+    .label:hover, .label.selected {
+        border-radius: 0 0.25em 0.25em 0.25em;
+    }
+    .label.button:hover, .label.selected {
+        box-shadow: 0.1em 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.25);
+    }
+}
