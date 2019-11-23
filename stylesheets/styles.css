@@ -109,12 +109,12 @@ a:active {
 }
 
 h1 {
-    margin: 0, 1vw;
+    margin: 0.25em 0em;
     font-weight: 300;
-    line-height: 5vw;
+    line-height: 1em;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
-    font-size: 5vw;
+    font-size: 1em;
     color: #e7e7e7;
 }
 
@@ -122,48 +122,51 @@ h2 {
     margin: 0;
     text-decoration: underline;
     font-weight: 300;
-    line-height: 5vw;
+    line-height: 1em;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
-    font-size: 5vw;
+    font-size: 2vh;
     color: #e7e7e7;
-    margin: 1vw 0 0 0 ;
+    margin: 0.15em 0 0 0 ;
 }
 
 /* Cards */
 
 .cube-display {
-    background: rgb(63, 67, 87, 0.1);
+    background: rgb(63, 67, 87, 0.5);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 1em;
-    width: 49vw;
+    max-width: 49vw;
     box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
     transition: border-radius .2s ease-in-out, .4s ease-in-out;
     overflow: hidden;
-    margin:3vw 0 0 0;
+    margin:0.75em 0.3em 0 0.3em;
 }
 
 .tower-display {
-    background: rgb(63, 67, 87, 0.1);
+    background: rgb(63, 67, 87, 0.5);
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
     border-radius: 1em;
     width: 99vw;
+    max-height: 20vh;
+    height:auto;
     box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
-    transition: border-radius .2s ease-in-out, .4s ease-in-out;
     overflow: hidden;
 }
 
 .tower-display .cube.container {
     position: relative;
-    margin: 0 2vw;
-    width: 25vw;
-    height: 30vw;
+    margin: 0 1.5vw;
+    max-width: 20%;
+    max-height: 20%;
+    width:auto;
+    height:auto;
 }
 
 .cube-display .cube.container {
@@ -171,19 +174,24 @@ h2 {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, 0%);
-    width: 25vw;
-    height: 31vw;
+    max-width: 50%;
+    max-height: 40%;
+    width:auto;
+    height:auto;
 }
 
 .cube.image, #suggestion-cube {
     margin: 0;
-    width: 25vw;
-    height: 25vw;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
     border-radius: 2vw;
 }
 
 .cube.container>.counter {
-    font-size: 5vw;
+    font-size: 1.5em;
+    line-height: 1em;
     color: #FFFFFF;
     margin: 0;
 }
@@ -208,6 +216,7 @@ h2 {
     justify-content: center;
     border-radius: 1em;
     width: 99vw;
+    max-height: 20vh;
     box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
     transition: border-radius .2s ease-in-out, .4s ease-in-out;
     overflow: hidden;
@@ -220,6 +229,10 @@ h2 {
     color: #FFFFFF;
     width: 25vw;
     margin: 1vw 0;
+}
+
+.score-display div{
+    max-width: 15vh;
 }
 
 .score-display .leading {
