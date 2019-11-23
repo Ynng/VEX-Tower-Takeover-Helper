@@ -97,9 +97,9 @@ var cube_interactions = function (e) {
 };
 
 
-var trigger_add_animation = function(e){
+var trigger_add_animation = function (e) {
     var cl = e.classList
-    if(cl.contains("remove-animation")){
+    if (cl.contains("remove-animation")) {
         cl.remove("remove-animation")
     }
     if (cl.contains("add-animation")) {
@@ -113,9 +113,9 @@ var trigger_add_animation = function(e){
 }
 
 
-var trigger_remove_animation = function(e){
+var trigger_remove_animation = function (e) {
     var cl = e.classList
-    if(cl.contains("add-animation")){
+    if (cl.contains("add-animation")) {
         cl.remove("add-animation")
     }
     if (cl.contains("remove-animation")) {
@@ -128,15 +128,42 @@ var trigger_remove_animation = function(e){
     }
 }
 
-var friendly_score = 0, enemy_score = 0 , last_friendly_score = 0, last_enemy_score = 0;
-var update_score = function(){
+var friendly_score = 0, enemy_score = 0, leading_score = 0, last_leading_score = 0, last_friendly_score = 0, last_enemy_score = 0;
+var update_score = function () {
+    var tempA, tempB, tempC = -1, tempD = -1;
     var friendly_score_display = document.getElementsByClassName("score-display")[0].children[0];
-    var enemy_score_display = document.getElementsByClassName("score-display")[0].children[1];
-    friendly_score = cube_counter[0]*(cube_counter[6]+1) + cube_counter[1]*(cube_counter[7]+1) + cube_counter[2]*(cube_counter[8]+1)
-    enemy_score = cube_counter[3]*(cube_counter[6]+1) + cube_counter[4]*(cube_counter[7]+1) + cube_counter[5]*(cube_counter[8]+1)
+    var leading_score_display = document.getElementsByClassName("score-display")[0].children[1];
+    var enemy_score_display = document.getElementsByClassName("score-display")[0].children[2];
+    friendly_score = cube_counter[0] * (cube_counter[6] + 1) + cube_counter[1] * (cube_counter[7] + 1) + cube_counter[2] * (cube_counter[8] + 1)
+    enemy_score = cube_counter[3] * (cube_counter[6] + 1) + cube_counter[4] * (cube_counter[7] + 1) + cube_counter[5] * (cube_counter[8] + 1)
+    leading_score = friendly_score - enemy_score;
     friendly_score_display.innerHTML = friendly_score
     enemy_score_display.innerHTML = enemy_score
-    if(friendly_score>last_friendly_score){
+    leading_score_display.innerHTML = leading_score
+    tempB = leading_score;
+
+    for (var i = 6; i <= 8; i++) {
+        if (cube_counter[i] > 0) {
+            tempA = cube_counter[i - 6] * (cube_counter[i] - 1) - cube_counter[i - 3] * (cube_counter[i] - 1)
+            tempC = i - 6;
+        } else {
+            tempA = leading_score
+            tempC = -1;
+        }
+        if (cube_counter[i - 6] * (cube_counter[i] + 1) - cube_counter[i - 3] * (cube_counter[i] + 1) > tempA) {
+            tempA = cube_counter[i - 6] * (cube_counter[i] + 1) - cube_counter[i - 3] * (cube_counter[i] + 1);
+            tempC = i - 3;
+        }
+        if (tempA > tempB) {
+            tempD = tempC
+        }
+    }
+    switch (tempD) {
+        case -1:
+            
+            break;
+    }
+    /*if(friendly_score>last_friendly_score){
         trigger_add_animation(friendly_score_display)
     }else if(friendly_score<last_friendly_score){
         trigger_remove_animation(friendly_score_display)
@@ -145,7 +172,15 @@ var update_score = function(){
         trigger_add_animation(enemy_score_display)
     }else if(enemy_score<last_enemy_score){
         trigger_remove_animation(enemy_score_display)
+    }*/
+    if (leading_score > last_leading_score) {
+        trigger_add_animation(leading_score_display)
+    } else if (leading_score < last_leading_score) {
+        trigger_remove_animation(leading_score_display)
     }
-    last_friendly_score=friendly_score
+
+    last_leading_score = leading_score
+    last_friendly_score = friendly_score
+    last_enemy_score = enemy_score
     console.log(friendly_score, enemy_score)
 };

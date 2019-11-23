@@ -104,7 +104,7 @@ a:active {
 }
 
 h1 {
-    margin: 0;
+    margin: 0, 1vw;
     font-weight: 300;
     line-height: 5vw;
     text-align: center;
@@ -201,8 +201,13 @@ h1 {
     font-weight: 900;
     font-size: 5vw;
     color: #FFFFFF;
-    width: 49vw;
+    width: 25vw;
     margin: 1vw 0;
+}
+
+.score-display .leading {
+    font-size: 10vw;
+    width: 50vw;
 }
 
 @keyframes add-animation {
