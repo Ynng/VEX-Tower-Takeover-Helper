@@ -1,6 +1,29 @@
 'use strict';
+var checkAdapative = setInterval(function () {
+    // do your thing
+    console.log(document.body.clientWidth / document.body.clientHeight);
+    if (document.body.clientWidth / document.body.clientHeight < 0.5) {
+        document.getElementById("main-container").classList.add("tall-screen")
+    } else {
+        document.getElementById("main-container").classList.remove("tall-screen")
+    }
+    if (document.body.clientWidth / document.body.clientHeight > 0.7) {
+        document.getElementById("main-container").classList.add("wide-screen")
+    } else {
+        document.getElementById("main-container").classList.remove("wide-screen")
+    }
+    // counter++;
+    // if(counter === 10) {
+    //     clearInterval(i);
+    // }
+}, 1000);
 
+async function checkAdapativeAsync(){
+    checkAdapative();
+}
 window.onload = function () {
+
+    checkAdapativeAsync();
     (function (d) {
         var
             ce = function (e, n) {

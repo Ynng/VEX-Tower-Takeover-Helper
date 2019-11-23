@@ -1,7 +1,12 @@
 /* General styling/Mobile styling */
 
-* {
-    overflow-y: hidden;
+body{
+    overflow: hidden;
+}
+
+html {
+    height: 100%;
+    width: 100%;
 }
 
 .alignRight {
@@ -37,6 +42,8 @@ body {
     font-family: 'Roboto', 'Arial', "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     background: rgb(45, 43, 51);
     margin: 0;
+    height: 100%;
+    width: 100%;
 }
 
 #main-container {
@@ -45,7 +52,7 @@ body {
     justify-content: center;
     height: 100%;
     width: 100%;
-    transition: 0.3s cubic-bezier(0.06, 0.35, 0.43, 0.84);
+    transition: 0.1s cubic-bezier(0.06, 0.35, 0.43, 0.84);
 }
 
 #cube-container {
@@ -54,7 +61,7 @@ body {
     justify-content: center;
     height: 100%;
     width: 100%;
-    transition: 0.3s cubic-bezier(0.06, 0.35, 0.43, 0.84), ;
+    transition: 0.1s cubic-bezier(0.06, 0.35, 0.43, 0.84), ;
 }
 
 /* <a>s */
@@ -109,12 +116,12 @@ a:active {
 }
 
 h1 {
-    margin: 0.25em 0em;
+    margin: 0.5vh 0vh;
     font-weight: 300;
-    line-height: 1em;
+    line-height: 3vh;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
-    font-size: 1em;
+    font-size: 3vh;
     color: #e7e7e7;
 }
 
@@ -122,12 +129,12 @@ h2 {
     margin: 0;
     text-decoration: underline;
     font-weight: 300;
-    line-height: 1em;
+    line-height: 2.5vh;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
-    font-size: 2vh;
+    font-size: 2.5vh;
     color: #e7e7e7;
-    margin: 0.15em 0 0 0 ;
+    margin: .5vh 0 0 0;
 }
 
 /* Cards */
@@ -139,11 +146,11 @@ h2 {
     flex-direction: column;
     justify-content: center;
     border-radius: 1em;
-    max-width: 49vw;
+    width: 45vw;
     box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
-    transition: border-radius .2s ease-in-out, .4s ease-in-out;
-    overflow: hidden;
-    margin:0.75em 0.3em 0 0.3em;
+    transition: border-radius .1s ease-in-out, .2s ease-in-out;
+    margin: 1vh 1vw 0 1vw;
+    padding: 1.75vh 0 0 0;
 }
 
 .tower-display {
@@ -153,47 +160,64 @@ h2 {
     flex-direction: row;
     justify-content: center;
     border-radius: 1em;
-    width: 99vw;
+    width: 95vw;
+    margin: 0px 2.5vw;
     max-height: 20vh;
-    height:auto;
+    height: auto;
     box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
-    overflow: hidden;
+    padding: 1.75vh 0 0 0;
 }
 
 .tower-display .cube.container {
-    position: relative;
+    overflow: visible;
     margin: 0 1.5vw;
-    max-width: 20%;
-    max-height: 20%;
-    width:auto;
-    height:auto;
+    max-width: 25vw;
+    max-height: 15.5vh;
+    width: auto;
+    height: auto;
 }
 
 .cube-display .cube.container {
+    overflow: visible;
     position: relative;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, 0%);
-    max-width: 50%;
-    max-height: 40%;
-    width:auto;
-    height:auto;
+    max-width: 25vw;
+    max-height: 15vh;
+    width: auto;
+    height: auto;
 }
 
-.cube.image, #suggestion-cube {
+.cube.container>.counter {
+    z-index: 100;
+    overflow: visible;
+    position: relative;
+    left: 45%;
+    font-size: 5vh;
+    line-height: 0vh;
+    color: #FFFFFF;
+    margin: 0 0 0vh 0;
+}
+
+.cube.image {
     margin: 0;
-    max-height: 100%;
-    max-width: 100%;
+    position: relative;
+    top: 0vh;
+    max-height: 15vh;
+    max-width: 25vw;
     width: auto;
     height: auto;
     border-radius: 2vw;
 }
 
-.cube.container>.counter {
-    font-size: 1.5em;
-    line-height: 1em;
-    color: #FFFFFF;
+#suggestion-cube {
     margin: 0;
+    max-height: 15vh;
+    max-width: 25vw;
+    width: auto;
+    height: auto;
+    border-radius: 2vw;
 }
 
 .green-animation {
@@ -209,41 +233,50 @@ h2 {
 }
 
 .score-display {
-    background: rgb(63, 67, 87, 0.1);
+    background: rgb(63, 67, 87, 0.8);
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
     border-radius: 1em;
-    width: 99vw;
+    width: 95vw;
     max-height: 20vh;
     box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
-    transition: border-radius .2s ease-in-out, .4s ease-in-out;
-    overflow: hidden;
-    margin: 1vh 0;
+    transition: border-radius .1s ease-in-out, .2s ease-in-out;
+    margin: 1vh 2.5vw;
 }
 
 .score-display p {
     font-family: 'Roboto', 'Quicksand', 'Arial', "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-    font-size: 5vw;
+    font-size: 4vh;
+    line-height: 4vh;
     color: #FFFFFF;
     width: 25vw;
-    margin: 1vw 0;
+    margin: 1vh 0 0 0;
 }
 
-.score-display div{
+.score-display div {
     max-width: 15vh;
 }
 
 .score-display .leading {
     font-weight: 900;
-    font-size: 10vw;
-    width: 50vw;
+    line-height: 6vh;
+    font-size: 6vh;
+    width: 40vw;
+    margin: 0;
 }
 
 #suggestion-change {
-    font-size: 12vw;
+    font-size: 9vh;
+    line-height: 9vh;
     font-weight: 1000;
+}
+
+#suggestion-change, #suggestion {
+    position: relative;
+    left: -5vw;
+    margin: 0;
 }
 
 .greenbg {
@@ -276,4 +309,32 @@ h2 {
     100% {
         background: rgba(255, 0, 0, 0)
     }
+}
+
+/* .tall-screen .tower-display{
+    max-height: 30vh;
+    height: 25vh;
+} */
+
+.tall-screen .tower-display .cube.container {
+    overflow: visible;
+    margin: 0 1.5vw;
+    max-width: 25vw;
+    max-height: 16vh;
+    width: auto;
+    height: auto;
+}
+
+.tall-screen .cube-display .cube.container {
+    max-height: 20vh;
+}
+
+.tall-screen .cube.container>.counter {
+    left: 0%;
+    font-size: 4vh;
+    line-height: 3vh;
+}
+
+*.wide-screen {
+    background-color: #ffffff;
 }
