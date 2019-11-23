@@ -64,10 +64,30 @@ window.onload = function() {
     document.body.addEventListener('swd', h, false);
 }
 
+var fg = [0,0,0,0,0,0,0,0,0]//frienddly, enemy, tower
 var h = function(e) {
     var cl = event.target.classList
-    // console.log(cl)
+    var temp = 0;
+    // console.log(e.target.previousSibling, e.target.previousSibling.innerHTML)
     if(cl.contains("image")&&cl.contains("cube")){
-        if(e.type=="fc")
+        if(cl.contains("orange")){
+            temp = 0
+        }
+        else if(cl.contains("green")){
+            temp = 1
+        }
+        else if(cl.contains("purple")){
+            temp = 2
+        }
+        if(e.target.parentNode.parentNode.id == 'enemy')temp+=3
+        if(e.target.parentNode.parentNode.id == 'tower')temp+=6 
+
+        if(e.type=="fc"){
+            e.target.parentNode.children[0].innerHTML = ++fg[temp]
+        }else if(e.type=="swd"){
+            if(fg[temp]>0){
+                e.target.parentNode.children[0].innerHTML = --fg[temp]
+            }
+        }
     }
 };

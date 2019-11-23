@@ -42,7 +42,7 @@ body {
     transition: 0.3s cubic-bezier(0.06, 0.35, 0.43, 0.84), ;
 }
 
-#team-container {
+#cube-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -102,30 +102,19 @@ a:active {
     background: #555;
 }
 
-/* Title */
-
-.title {
+h1 {
     margin: 0;
     font-weight: 300;
-    line-height: 1.6em;
+    line-height:  5vw;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
-}
-
-h1.title {
-    font-size: 3em;
+    font-size: 5vw;
     color: #e7e7e7;
-}
-
-h2.title {
-    font-size: 1.5em;
-    color: #a2a2a2;
-    font-weight: bold;
 }
 
 /* Cards */
 
-.team-display {
+.cube-display{
     background: rgb(63, 67, 87, 0.1);
     text-align: center;
     display: flex;
@@ -136,9 +125,30 @@ h2.title {
     box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
     transition: border-radius .2s ease-in-out, .4s ease-in-out;
     overflow: hidden;
+    margin: 5vw 0;
 }
 
-.cube.container{
+.tower-display{
+    background: rgb(63, 67, 87, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 1em;
+    width: 99vw;
+    box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
+    transition: border-radius .2s ease-in-out, .4s ease-in-out;
+    overflow: hidden;
+}
+
+.tower-display .cube.container{
+    position: relative;
+    margin:0 2vw;
+    width: 25vw;
+    height: 30vw;
+}
+
+.cube-display .cube.container{
     position: relative;
     left: 50%;
     margin-right: -50%;
@@ -159,7 +169,33 @@ h2.title {
     margin: 0;
 }
 
+.score-display{
+    background: rgb(63, 67, 87, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 1em;
+    width: 99vw;
+    box-shadow: 0 0 0.15em 0.15em rgba(0, 0, 0, .125);
+    transition: border-radius .2s ease-in-out, .4s ease-in-out;
+    overflow: hidden;
+}
+
+.score-display p{
+    font-size:5vw;
+    color:#FFFFFF;
+    width:49vw;
+    margin: 1vw 0;
+}
+
 /* RESPONSIVENESS */
+@keyframes cube-animation {
+    0% {width:25vw; height:25vw;};
+    25% {width:20vw; height:20vw;}
+    100% {width:20vw; height:20vw;}
+
+  }
 
 @media only screen and (min-width: 60rem) {
     .card {
