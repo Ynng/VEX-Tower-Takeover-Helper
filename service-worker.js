@@ -1,4 +1,4 @@
-// var cacheName = "cacheName_v3";
+// var cacheName = "cacheName_v4";
 // // CODELAB: Add list of files to cache here.
 // const FILES_TO_CACHE = [
 //     '/',
@@ -24,7 +24,7 @@
 //             console.log('Service Worker: Caching App Shell at the moment......');
 
 //             // Add Files to the Cache
-//             return cache.addAll(FILES_TO_CACHE);
+//             return cache.addAll(FILES_TO_CACHE.map(url => new Request(url, {credentials: 'same-origin'})));
 //         })
 //     );
 // });
