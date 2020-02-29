@@ -6,11 +6,11 @@ var lol = 0;
 window.onload = function() {
   checkAdapativeAsync();
   console.log(navigator);
-  // if ('serviceWorker' in navigator) {
-  //     navigator.serviceWorker
-  //         .register('./service-worker.js')
-  //         .then(function () { console.log('Service Worker Registered'); });
-  // }
+  if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+          .register('./service-worker.js')
+          .then(function () { console.log('Service Worker Registered'); });
+  }
   (function(d) {
     var ce = function(e, n) {
         var a = document.createEvent("CustomEvent");
