@@ -359,9 +359,9 @@ h2 {
     line-height: 3vh;
 }
 
-*.wide-screen {
+/* *.wide-screen {
     background-color: #ffffff;
-}
+} */
 #enemy{
     border-radius: 0em;
 }
