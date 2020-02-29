@@ -1,4 +1,4 @@
-var cacheName = "cacheName_v10";
+var cacheName = "cacheName_v16";
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
     '/',
