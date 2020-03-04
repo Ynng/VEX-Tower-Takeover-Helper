@@ -16,4 +16,4 @@ Kinda jank stuff:
 * Swipe left 10 times to swap friendly/enemy team
 * Swipe right 10 times to swap red/blue
 * All cube counts gets reset back to 0 after a color/team swap, but this change wouldn't be reflected in the HTML until you interact with each cube once.
-  * The rectangle with rounded corners is the fiendly team.
+  * The rectangle with rounded corners is the friendly team.
